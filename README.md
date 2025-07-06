@@ -1,7 +1,5 @@
 # Seu Estoque Online
 
-## Descrição
-
 Aplicação simples para gerenciamento de estoque de produtos.
 
 Permite cadastrar, alterar, excluir produtos e gerenciar estoque com dados de criação e atualização armazenados. A aplicação expõe uma API REST documentada com **Swagger**.
