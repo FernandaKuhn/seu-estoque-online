@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button, FormHelperText } from '@mui/material';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Button,
+  FormHelperText,
+} from '@mui/material';
 import { formatCurrencyInput, parseCurrencyToNumber } from '../../utils/currency';
 import type { Product } from '../../types/Product';
 
@@ -18,7 +26,7 @@ const EditProductDialog = ({ product, onClose, onSave }: Props) => {
   useEffect(() => {
     if (product) {
       setEditedProduct(product);
-      setPriceInput(formatCurrencyInput(product.price.toFixed(2).replace('.', '')));
+      setPriceInput(formatCurrencyInput(String(product.price * 100)));
       setPriceError(null);
       setAmountError(null);
     }
@@ -47,10 +55,13 @@ const EditProductDialog = ({ product, onClose, onSave }: Props) => {
           fullWidth
           margin="dense"
           value={editedProduct?.name || ''}
-          onChange={(e) => editedProduct && setEditedProduct({ ...editedProduct, name: e.target.value })}
+          onChange={(e) =>
+            editedProduct && setEditedProduct({ ...editedProduct, name: e.target.value })
+          }
         />
         <TextField
           label="Preço"
+          placeholder="0,00"
           fullWidth
           margin="dense"
           value={priceInput}
@@ -88,7 +99,9 @@ const EditProductDialog = ({ product, onClose, onSave }: Props) => {
           fullWidth
           margin="dense"
           value={editedProduct?.imageUrl || ''}
-          onChange={(e) => editedProduct && setEditedProduct({ ...editedProduct, imageUrl: e.target.value })}
+          onChange={(e) =>
+            editedProduct && setEditedProduct({ ...editedProduct, imageUrl: e.target.value })
+          }
         />
       </DialogContent>
       <DialogActions>

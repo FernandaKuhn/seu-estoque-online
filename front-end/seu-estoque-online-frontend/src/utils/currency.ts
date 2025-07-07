@@ -1,15 +1,21 @@
 export const formatCurrencyInput = (value: string) => {
   const onlyDigits = value.replace(/\D/g, '');
-  if (!onlyDigits) return '0,00';
-  const cents = onlyDigits.slice(-2);
-  let integerPart = onlyDigits.slice(0, -2);
-  if (integerPart === '') integerPart = '0';
-  integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  return integerPart + ',' + cents;
+  const numericValue = parseInt(onlyDigits, 10);
+
+  if (isNaN(numericValue)) return '';
+
+  const cents = numericValue / 100;
+  return cents
+    .toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+    })
+    .replace('R$', '')
+    .trim();
 };
 
 export const parseCurrencyToNumber = (formatted: string) => {
-  if (!formatted) return 0;
-  const normalized = formatted.replace(/\./g, '').replace(',', '.');
-  return parseFloat(normalized) || 0;
+  const clean = formatted.replace(/[^\d]/g, '');
+  return Number(clean) / 100;
 };

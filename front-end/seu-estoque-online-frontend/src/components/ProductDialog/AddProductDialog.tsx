@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button, FormHelperText } from '@mui/material';
-import { formatCurrencyInput, parseCurrencyToNumber } from '../../utils/currency';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Button,
+  FormHelperText,
+} from '@mui/material';
 import type { Product } from '../../types/Product';
+import { formatCurrencyInput, parseCurrencyToNumber } from '../../utils/currency';
 
 interface Props {
   open: boolean;
@@ -18,13 +26,13 @@ const emptyProduct: Omit<Product, 'id' | 'createdIn' | 'updatedIn'> = {
 
 const AddProductDialog = ({ open, onClose, onSave }: Props) => {
   const [product, setProduct] = useState(emptyProduct);
-  const [priceInput, setPriceInput] = useState('0,00');
+  const [priceInput, setPriceInput] = useState('');
   const [priceError, setPriceError] = useState<string | null>(null);
   const [amountError, setAmountError] = useState<string | null>(null);
 
   useEffect(() => {
     setProduct(emptyProduct);
-    setPriceInput('0,00');
+    setPriceInput('');
     setPriceError(null);
     setAmountError(null);
   }, [open]);
@@ -55,6 +63,7 @@ const AddProductDialog = ({ open, onClose, onSave }: Props) => {
         />
         <TextField
           label="Preço"
+          placeholder="0,00"
           fullWidth
           margin="dense"
           value={priceInput}

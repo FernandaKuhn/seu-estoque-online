@@ -15,7 +15,7 @@ export const GlobalStyles = () => (
 
       body {
         font-family: 'Roboto', sans-serif;
-        background-color: #f5f5f5;
+        background-color: #ebebeb;
         color: #333;
         display: flex;
         flex-direction: column;

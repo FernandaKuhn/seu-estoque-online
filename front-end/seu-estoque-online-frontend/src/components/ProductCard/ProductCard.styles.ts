@@ -6,7 +6,7 @@ export const StyledCard = styled(Card)({
   flexDirection: 'column',
   justifyContent: 'space-between',
   height: '100%',
-  width:'100%',
+  width: '100%',
   maxWidth: 280,
   margin: 8,
   borderRadius: 20,
