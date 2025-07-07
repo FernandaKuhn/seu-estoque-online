@@ -60,8 +60,10 @@ npm run dev
 
 ---
 
-### Projeto Rodando
-![image](https://github.com/user-attachments/assets/d805a548-aa80-4876-8af4-eed9bfecf986)
+### Print da Aplicação
+![image](https://github.com/user-attachments/assets/f9c346ad-3904-4c44-8adc-1a69f7c0f2b9)
+
+
 
 Crédito ícone das caixas:  Smashicons Flaticon
 
