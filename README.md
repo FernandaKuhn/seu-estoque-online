@@ -9,7 +9,7 @@ Permite cadastrar, alterar, excluir produtos e gerenciar estoque com dados de cr
 ## Tecnologias Utilizadas
 
 ### Backend
-- Java 21
+- Java v21
 - Spring Boot
 - JPA (Java Persistence API)
 - Banco de dados in-memory H2
